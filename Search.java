@@ -1,31 +1,4 @@
-import java.util.Random;
-
-public class CodingChallenge_1{
-
-    /**
-     * Generate random positive integers
-     * @param numberOfNumbers List size
-     * @return a list of random numbers between 1 and 100
-     */
-    public static int [] generateRandomNumbers(int numberOfNumbers){
-       int[] randomNumbers = new int[numberOfNumbers];
-       Random random = new Random();
-       for (int x=0; x<randomNumbers.length;x++){
-           randomNumbers[x]= random.nextInt(100)+1;
-       }
-       return randomNumbers;
-    }
-
-    /**
-     * Print elements in an array.
-     * @param listOfNumbers array of positive integers.
-     */
-    public static void printListOfNumbers(int [] listOfNumbers){
-        for (int x = 0; x<listOfNumbers.length;x++){
-            System.out.print(listOfNumbers[x]+" ");
-        }
-        System.out.println();
-    }
+public class Search {
 
     /**
      * Uses ninary search algorithm to search for a given element.
@@ -69,5 +42,25 @@ public class CodingChallenge_1{
             return true;
         }
     }
+    
+    /**
+     * Search for two numbers in an array.
+     * @param listOfNumbers Array of integers.
+     * @param number1 First number to search for.
+     * @param number2 Second number to search for.
+     * @return An array of two numbers of searched numbers if they are found in an array.
+     */
+    public static int [] searchForTwoNumbers(int[] listOfNumbers, int number1, int number2){
+        int [] foundNumbers = new int[2];
 
+        if (searchWithBinarySearch(listOfNumbers,number1)&&searchWithBinarySearch(listOfNumbers,number2)) {
+            foundNumbers[0] = number1;
+            foundNumbers[1] = number2;
+        }else{
+            foundNumbers = null;
+        }
+
+        return foundNumbers;
+
+    }
 }
